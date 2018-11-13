@@ -1,11 +1,8 @@
 package asdasd;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
 import java.util.Map;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import org.junit.Test;
 
@@ -22,13 +19,11 @@ public class MapaTest {
 		mapa.put(6, 12);
 	}
 
-	private Map multiplosDe4(Map<Integer, Integer> mapa) {
+	private Map<Integer, Integer> multiplosDe4(Map<Integer, Integer> mapa) {
 
 		Map<Integer, Integer> mapaOrdenado = new HashMap<>();
 
 		for (Map.Entry<Integer, Integer> entry : mapa.entrySet()) {
-		     
-		 
 
 			if (entry.getValue() % 4 == 0) {
 
