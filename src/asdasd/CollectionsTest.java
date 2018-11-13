@@ -65,7 +65,7 @@ public class CollectionsTest {
 	}
 	// Que modificaciones tenes que hacer para que el siguiente test de verde
 
-	// @Test
+	@Test
 	public void ordenarRectangulosDeMenorAMyorPorPerimetro() {
 
 		List<Rectangulo> miLista = new LinkedList<>();
@@ -111,7 +111,23 @@ public class CollectionsTest {
 
 	}
 	
-	
+	@Test
+	 public void ordenarRectangulosDeMenorAMyorPorPerimetro2(){
+
+	        List<Rectangulo>  miLista = new LinkedList<>();
+
+	        miLista.add(new Rectangulo(4d,6d));
+	        miLista.add(new Rectangulo(3d,2d));
+	        miLista.add(new Rectangulo(4d,5d));
+
+
+	        Collections.sort(miLista);
+
+	        assertEquals(10, miLista.get(0));
+	        assertEquals(18, miLista.get(1));
+	        assertEquals(20, miLista.get(2));
+
+	    }
 	
 	
 
