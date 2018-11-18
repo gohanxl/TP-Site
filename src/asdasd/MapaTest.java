@@ -1,5 +1,8 @@
 package asdasd;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -28,10 +31,17 @@ public class MapaTest {
 
 		System.out.println("\nMapa Ordenado");
 		Map<Integer, Integer> mapaOrdenado = multiplosDe4(mapa);
+
 		printMap(mapaOrdenado);
+
+		Integer valorObtenido = 4;
+
+		assertNotNull(mapaOrdenado);
+
+		// pasar a un hashSet y ordenar con un compareTo }
 	}
 
-	private static Map<Integer, Integer> multiplosDe4(Map<Integer, Integer> mapa) {
+	public Map<Integer, Integer> multiplosDe4(Map<Integer, Integer> mapa) {
 
 		List<Map.Entry<Integer, Integer>> list = new LinkedList<Map.Entry<Integer, Integer>>(mapa.entrySet());
 
@@ -56,7 +66,7 @@ public class MapaTest {
 		return mapaOrdenado;
 	}
 
-	public static <K, V> void printMap(Map<K, V> map) {
+	private static <K, V> void printMap(Map<K, V> map) {
 
 		for (Map.Entry<K, V> entry : map.entrySet()) {
 			System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());

@@ -50,6 +50,8 @@ public class SetTest {
 		System.out.println(sinRepetidos);
 		
 	}
+	
+	//Ejercicio 10
 
 	private Set<Integer> eliminarRepetidos(List<Integer> miLista) {
 

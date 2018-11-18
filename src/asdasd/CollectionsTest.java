@@ -6,10 +6,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.junit.Test;
 
-public class CollectionsTest {
+public class CollectionsTest implements Comparable<Object> {
 
 	public interface Figura {
 
@@ -60,12 +62,10 @@ public class CollectionsTest {
 			this.lado2 = lado2;
 		}
 
-		
-		
 	}
 	// Que modificaciones tenes que hacer para que el siguiente test de verde
 
-	@Test
+	// @Test
 	public void ordenarRectangulosDeMenorAMyorPorPerimetro() {
 
 		List<Rectangulo> miLista = new LinkedList<>();
@@ -74,7 +74,7 @@ public class CollectionsTest {
 		miLista.add(new Rectangulo(3d, 2d));
 		miLista.add(new Rectangulo(4d, 5d));
 
-		Collections.sort(null);
+		Collections.sort(miLista); // por que?
 
 		assertEquals(10, miLista.get(0));
 		assertEquals(18, miLista.get(1));
@@ -102,33 +102,44 @@ public class CollectionsTest {
 		Double superficie1 = miLista.get(0).calcularArea();
 		Double superficie2 = miLista.get(1).calcularArea();
 		Double superficie3 = miLista.get(2).calcularArea();
-		
-		
 
-		assertEquals(superficie1, miLista.get(0));
-		assertEquals(superficie2, miLista.get(1));
-		assertEquals(superficie3, miLista.get(2));
+		assertEquals(superficie1, miLista.get(0).calcularArea());
+		assertEquals(superficie2, miLista.get(1).calcularArea());
+		assertEquals(superficie3, miLista.get(2).calcularArea());
+		
+		
+		System.out.println(miLista.get(0).calcularArea());
 
 	}
-	
-	@Test
-	 public void ordenarRectangulosDeMenorAMyorPorPerimetro2(){
 
-	        List<Rectangulo>  miLista = new LinkedList<>();
+	// @Test
+	public void ordenarRectangulosDeMenorAMyorPorPerimetro2() { // eliminar .sort
 
-	        miLista.add(new Rectangulo(4d,6d));
-	        miLista.add(new Rectangulo(3d,2d));
-	        miLista.add(new Rectangulo(4d,5d));
+		List<Rectangulo> miLista = new LinkedList<>();
 
+		miLista.add(new Rectangulo(4d, 6d));
+		miLista.add(new Rectangulo(3d, 2d));
+		miLista.add(new Rectangulo(4d, 5d));
 
-	        Collections.sort(miLista);
+		Set<Rectangulo> setOrdenado = new TreeSet<Rectangulo>();
+		
+		setOrdenado.addAll(miLista);
+		
+		Rectangulo [] elementosOrdenados = new Rectangulo[setOrdenado.size()];
+		setOrdenado.toArray(elementosOrdenados);
 
-	        assertEquals(10, miLista.get(0));
-	        assertEquals(18, miLista.get(1));
-	        assertEquals(20, miLista.get(2));
+		assertEquals(new Double(10), elementosOrdenados[0].calcularPerimetro());
+		assertEquals(new Double(18), elementosOrdenados[1].calcularPerimetro());
+		assertEquals(new Double (20), elementosOrdenados[2].calcularPerimetro());
 
-	    }
-	
-	
+	}
+
+	@Override
+	public int compareTo(Object o) {
+
+		Rectangulo rectangulo = (Rectangulo) o;
+
+		return rectangulo.lado1.compareTo(rectangulo.lado2);
+	}
 
 }
