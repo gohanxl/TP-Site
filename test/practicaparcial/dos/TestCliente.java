@@ -15,7 +15,7 @@ import practica.parcial.dos.SaldoInsuficienteExc;
 
 public class TestCliente {
 
-	@Test
+	@Test (expected = Exception.class)
 	public void test1() throws Exception {
 
 		Cliente clienteOrigen = new Cliente("123", "Lucas", "asd123", 1200.0);
@@ -29,7 +29,7 @@ public class TestCliente {
 
 		System.out.println(clientes.size());
 
-		banco1.hacerTransferencia2(clienteOrigen.getCuenta().getCbu(), clienteDestino.getCuenta().getCbu(), 400.0);
+		banco1.hacerTransferencia2("123", "124", 400.0);
 
 		Double valorEsperado1 = 800.0;
 		Double valorObtenido1 = clienteOrigen.getCuenta().getSaldo();
@@ -45,6 +45,7 @@ public class TestCliente {
 	public void testQuePruebaExcepcionExtraer() {
 
 		Cliente clienteOrigen = new Cliente("123", "Lucas", "asd123", 1200.0);
+
 		Cliente clienteDestino = new Cliente("124", "Igna", "asd124", 500.0);
 
 		List<Cliente> clientes = new LinkedList<Cliente>();

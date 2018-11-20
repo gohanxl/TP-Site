@@ -82,7 +82,7 @@ public class CollectionsTest {
 
 		Collections.sort(miLista); // por que?
 
-		assertEquals(10, miLista.get(0).toString());
+		assertEquals(10, miLista.get(0));
 		assertEquals(18, miLista.get(1));
 		assertEquals(20, miLista.get(2));
 

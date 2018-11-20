@@ -49,20 +49,27 @@ public class Banco {
 				clienteOrigen = cliente;
 				break;
 
-			} else
-
-				throw new CbuIncorrectoExc("El CBU no coincide.");
+			}
 
 		}
+
+		if (clienteOrigen == null) {
+
+			throw new CbuIncorrectoExc("El CBU no coincide.");
+		}
+
 		for (Cliente cliente : clientes) {
 
 			if (cliente.getCuenta().getCbu().equals(cbuDestino)) {
 
 				clienteDestino = cliente;
 				break;
-			} else
+			}
+		}
 
-				throw new CbuIncorrectoExc("El CBU no coincide.");
+		if (clienteDestino == null) {
+
+			throw new CbuIncorrectoExc("El CBU no coincide.");
 
 		}
 
