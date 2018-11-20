@@ -11,7 +11,7 @@ import java.util.TreeSet;
 
 import org.junit.Test;
 
-public class CollectionsTest implements Comparable<Object> {
+public class CollectionsTest {
 
 	public interface Figura {
 
@@ -20,7 +20,7 @@ public class CollectionsTest implements Comparable<Object> {
 		Double calcularPerimetro();
 	}
 
-	public class Rectangulo implements Figura {
+	public class Rectangulo implements Figura, Comparable<Rectangulo> {
 
 		private Double lado1;
 		private Double lado2;
@@ -62,10 +62,16 @@ public class CollectionsTest implements Comparable<Object> {
 			this.lado2 = lado2;
 		}
 
+		@Override
+		public int compareTo(Rectangulo o) {
+			// TODO Auto-generated method stub
+			return Rectangulo.this.calcularPerimetro().compareTo(o.calcularPerimetro());
+		}
+
 	}
 	// Que modificaciones tenes que hacer para que el siguiente test de verde
 
-	// @Test
+	@Test
 	public void ordenarRectangulosDeMenorAMyorPorPerimetro() {
 
 		List<Rectangulo> miLista = new LinkedList<>();
@@ -76,7 +82,7 @@ public class CollectionsTest implements Comparable<Object> {
 
 		Collections.sort(miLista); // por que?
 
-		assertEquals(10, miLista.get(0));
+		assertEquals(10, miLista.get(0).toString());
 		assertEquals(18, miLista.get(1));
 		assertEquals(20, miLista.get(2));
 
@@ -112,7 +118,7 @@ public class CollectionsTest implements Comparable<Object> {
 
 	}
 
-	// @Test
+	@Test
 	public void ordenarRectangulosDeMenorAMyorPorPerimetro2() { // eliminar .sort
 
 		List<Rectangulo> miLista = new LinkedList<>();
@@ -132,14 +138,6 @@ public class CollectionsTest implements Comparable<Object> {
 		assertEquals(new Double(18), elementosOrdenados[1].calcularPerimetro());
 		assertEquals(new Double (20), elementosOrdenados[2].calcularPerimetro());
 
-	}
-
-	@Override
-	public int compareTo(Object o) {
-
-		Rectangulo rectangulo = (Rectangulo) o;
-
-		return rectangulo.lado1.compareTo(rectangulo.lado2);
 	}
 
 }

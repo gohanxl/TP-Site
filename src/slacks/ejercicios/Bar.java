@@ -1,11 +1,11 @@
 package slacks.ejercicios;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Bar {
 
-	private Set<ClientesBar> clientes = new HashSet<ClientesBar>();
+	private Set<ClientesBar> clientes = new TreeSet<ClientesBar>();
 
 	public Bar(Set<ClientesBar> clientes) {
 
@@ -13,25 +13,4 @@ public class Bar {
 
 	}
 
-	public Set<ClientesBar> eliminarRepetidos(Set<ClientesBar> cliente, ClientesBar cliente1) throws Exception {
-
-		Set<ClientesBar> clientesSet = new HashSet<ClientesBar>();
-
-		for (ClientesBar e : clientes) {
-
-			if (e.getNombre().equals(cliente1.getNombre())) {
-				;
-				{
-
-					clientesSet.remove(e);
-				}
-			} else {
-
-				clientesSet.add(e);
-
-			}
-
-		}
-		return clientesSet;
-	}
 }
