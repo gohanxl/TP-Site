@@ -82,9 +82,16 @@ public class CollectionsTest {
 
 		Collections.sort(miLista); // por que?
 
-		assertEquals(10, miLista.get(0));
-		assertEquals(18, miLista.get(1));
-		assertEquals(20, miLista.get(2));
+		Double valorObtenido = miLista.get(0).calcularPerimetro();
+		Double valorEsperado = 10.0;
+		Double valorObtenido2 = miLista.get(1).calcularPerimetro();
+		Double valorEsperado2 = 18.0;
+		Double valorObtenido3 = miLista.get(2).calcularPerimetro();
+		Double valorEsperado3 = 20.0;
+		
+		assertEquals(valorEsperado, valorObtenido);
+		assertEquals(valorEsperado2, valorObtenido2);
+		assertEquals(valorEsperado3, valorObtenido3);
 
 	}
 
