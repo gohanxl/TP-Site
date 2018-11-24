@@ -27,7 +27,6 @@ public class TestCliente {
 		clientes.add(clienteOrigen);
 		clientes.add(clienteDestino);
 
-		System.out.println(clientes.size());
 
 		banco1.hacerTransferencia2("123", "124", 400.0);
 
