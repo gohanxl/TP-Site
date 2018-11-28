@@ -126,7 +126,9 @@ public class ListaTest {
 	}
 
 	//Punto 4: sentencias: C -
-	//Punto 5: A) A nivel basico si, hacen lo mismo. B) 
+	//Punto 5: A) A nivel basico si, hacen lo mismo. B) Diferencia entre ArrayList y LinkedList: LinkedList tiene un acceso secuencial 
+	// y permite eleminiar elementos en tiempo constante. ArrayList tiene acceso en tiempo constante, pero para agregar o eliminar un elemento
+	// hay que mover elementos.
 		// C) LinkedList lo usaria para manipular datos, aunque usa mucha memoria. Y ArrayList para guardar y acceder data.
 	
 	
